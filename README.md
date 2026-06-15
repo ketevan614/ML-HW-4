@@ -115,18 +115,24 @@ Project name:
 fer2013-homework
 ```
 
+Wandb project:
+
+```text
+https://wandb.ai/karev23-free-university-of-tbilisi-/fer2013-homework
+```
+
 ## Results
 
-Fill this table after running experiments.
+Final Colab runs with T4 GPU:
 
-| Run | Learning rate | Dropout | Augmentation | Best validation accuracy | Notes |
-| --- | ---: | ---: | --- | ---: | --- |
-| `tiny_cnn_lr1e-3` | 0.001 | 0.25 | no | TODO | Baseline |
-| `better_cnn_aug_dropout03` | 0.001 | 0.30 | yes | TODO | More capacity and regularization |
-| `residual_cnn_adamw_lr3e-4` | 0.0003 | 0.40 | yes | TODO | Residual architecture |
+| Run | Epochs | Learning rate | Dropout | Augmentation | Best validation accuracy | Notes |
+| --- | ---: | ---: | ---: | --- | ---: | --- |
+| `tiny_cnn_lr1e-3` | 5 | 0.001 | 0.25 | no | 0.528559 | Baseline |
+| `better_cnn_aug_dropout03` | 10 | 0.001 | 0.30 | yes | 0.598913 | Best result |
+| `residual_cnn_adamw_lr3e-4` | 10 | 0.0003 | 0.40 | yes | 0.575648 | Residual model |
 
 ## Notes
 
 First model is small on purpose. Second model adds more layers/regularization. Third model tries residual blocks.
 
-After training, I will add the actual scores and Wandb links here.
+Best model was `better_cnn_aug_dropout03`. It improved a lot over the tiny baseline, probably because BatchNorm, Dropout, augmentation, and more convolution layers helped it learn better face features. The residual model was better than the baseline too, but in this run it did not beat the simpler BetterCNN.
